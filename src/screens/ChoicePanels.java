@@ -2,8 +2,11 @@ package screens;
 
 import dataStore.Data;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 
 public class ChoicePanels {
 
@@ -28,18 +31,22 @@ public class ChoicePanels {
         this.textAreaKnight.setBackground(Color.red.darker().darker().darker());
         this.textAreaKnight.setForeground(Color.white);
 
-       /*
-       this.textAreaKnight.setForeground(Color.white);
-       dit even na vragen waarom het niet werkt, is het omdat het een textField is?
-        */
 
+        try {
+            JLabel picture = new JLabel(new ImageIcon(ImageIO.read(new File("./src/resource/knight1.png"))));
+            picture.setBounds(50, 0 , 158, 155);
+            knight.add(picture);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
 
         this.textAreaKnight.setText(
-                        "Health : 10 \n" +
-                        "Attack : 5 \n" +
-                        "Block chance : 25 % \n" +
-                        "Critical hit chance : 10 % \n"
+                "KNIGHT, stats: \n" +
+                        " \t Health : 10 \n" +
+                        "\t Attack : 5 \n" +
+                        "\t Block chance : 25 % \n" +
+                        "\t Critical hit chance : 10 % \n"
         );
 
 
@@ -68,11 +75,22 @@ public class ChoicePanels {
         this.textAreaArcher.setForeground(Color.white);
         this.textAreaArcher.setEditable(false);
 
+        try {
+            JLabel picture = new JLabel(new ImageIcon(ImageIO.read(new File("./src/resource/archer1.png"))));
+            picture.setBounds(30, -20 , 180, 180);
+            archer.add(picture);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+
         this.textAreaArcher.setText(
-                "Health : 6 \n" +
-                        "Attack : 5 \n" +
-                        "Block chance : 33 % \n" +
-                        "Critical hit chance : 20 % \n"
+                "ARCHER, stats: \n" +
+                        "\t Health : 6 \n" +
+                        "\t Attack : 5 \n" +
+                        "\t Block chance : 33 % \n" +
+                        "\t Critical hit chance : 20 % \n"
         );
 
         Font textArcher = new Font("New Times Roman", Font.PLAIN | Font.BOLD, 20);
@@ -101,11 +119,20 @@ public class ChoicePanels {
         this.textAreaMage.setForeground(Color.white);
         this.textAreaMage.setEditable(false);
 
+        try {
+            JLabel picture = new JLabel(new ImageIcon(ImageIO.read(new File("./src/resource/mage1.png"))));
+            picture.setBounds(50, 0 , 158, 155);
+            mage.add(picture);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         this.textAreaMage.setText(
-                "Health : 8 \n" +
-                        "Attack : 7 \n" +
-                        "Block chance : 10 % \n" +
-                        "Critical hit chance : 20 % \n"
+                " MAGE, stats: \n" +
+                        "\t Health : 8 \n" +
+                        "\t Attack : 7 \n" +
+                        "\t Block chance : 10 % \n" +
+                        "\t Critical hit chance : 20 % \n"
         );
 
         Font textMage = new Font("New Times Roman", Font.PLAIN | Font.BOLD, 20);

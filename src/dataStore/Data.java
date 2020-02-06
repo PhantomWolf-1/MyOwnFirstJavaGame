@@ -22,6 +22,8 @@ public class Data {
     private StageOne stageOne;
 
     private JTextArea mainTextGame;
+    private ImageIcon profilePic;
+    private JLabel labelPic;
     private JTextArea playerStatsMainGame;
     private JButton choice1;
     private JButton choice2;
@@ -81,6 +83,14 @@ public class Data {
         return choice4;
     }
 
+    public ImageIcon getProfilePic() {
+        return profilePic;
+    }
+
+    public JLabel getLabelPic() {
+        return labelPic;
+    }
+
     //------------------------------------------------------------------------------------------------------------------------
 
 
@@ -136,6 +146,13 @@ public class Data {
         this.choice4 = choice4;
     }
 
+    public void setProfilePic(ImageIcon profilePic) {
+        this.profilePic = profilePic;
+    }
+
+    public void setLabelPic(JLabel labelPic) {
+        this.labelPic = labelPic;
+    }
 
     public void clearButtons() {
 
