@@ -4,6 +4,11 @@ import dataStore.Data;
 
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.awt.image.ImageObserver;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.Border;
 
@@ -135,7 +140,6 @@ public class Pane extends Container {
 
         Border border = BorderFactory.createLineBorder(Color.white);
 
-
         this.data.getMainTextGame().setBounds(60, 30, 800, 450);
         this.data.getMainTextGame().setBackground(Color.black);
         this.data.getMainTextGame().setForeground(Color.white);
@@ -146,17 +150,28 @@ public class Pane extends Container {
         this.data.getMainTextGame().setText("The first stage");
 
 
+
         JPanel statsPanel = new JPanel();
         statsPanel.setBounds(1200, 30, 300, 450);
+        statsPanel.setBackground(Color.black);
+        statsPanel.setLayout(null);
+        statsPanel.setBorder(BorderFactory.createCompoundBorder(border,
+                BorderFactory.createEmptyBorder(10,  10, 10, 10)));
 
-        this.data.getPlayerStatsMainGame().setBounds(0, 0, 100, 100);
+        this.data.getPlayerStatsMainGame().setBounds(10, 120, 280, 220);
         this.data.getPlayerStatsMainGame().setBackground(Color.black);
         this.data.getPlayerStatsMainGame().setForeground(Color.white);
         this.data.getPlayerStatsMainGame().setEditable(false);
-        this.data.getPlayerStatsMainGame().setBorder(BorderFactory.createCompoundBorder(border,
-                BorderFactory.createEmptyBorder(10, 10, 10, 10)));
-
         this.data.getPlayerStatsMainGame().setText(this.data.getPlayer().toString());
+
+        this.data.getLabelPic().setBounds(0, 0 , 200, 200);
+        statsPanel.add(this.data.getLabelPic());
+
+
+        /**
+         * to do : let the image icon work
+         *
+         */
         statsPanel.add(this.data.getPlayerStatsMainGame());
 
 
@@ -191,7 +206,7 @@ public class Pane extends Container {
         this.data.getChoice4().addActionListener(this.data.getHandler());
 
         panel.add(statsPanel);
-        panel.add(this.data.getPlayerStatsMainGame());
+       // panel.add(this.data.getPlayerStatsMainGame());
         panel.add(this.data.getChoice1());
         panel.add(this.data.getChoice2());
         panel.add(this.data.getChoice3());

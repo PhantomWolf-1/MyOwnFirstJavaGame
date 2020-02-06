@@ -21,13 +21,16 @@ public class Init {
         player(data);
         stats(data);
         choicePanels(data);
-        stageOne(data);
         mainTextArea(data);
         playerStats(data);
         button1(data);
         button2(data);
         button3(data);
         button4(data);
+        profilePic(data);
+        picLabel(data);
+
+        stageOne(data);
 
         return data;
     }
@@ -68,7 +71,7 @@ public class Init {
     }
 
 
-    private static void playerStats(Data data){
+    private static void playerStats(Data data) {
         data.setPlayerStatsMainGame(new JTextArea());
     }
 
@@ -92,8 +95,17 @@ public class Init {
         data.setChoice4(new JButton());
     }
 
+    private static void profilePic(Data data) {
+        data.setProfilePic(new ImageIcon());
+    }
+
+    private static void picLabel(Data data) {
+        data.setLabelPic(new JLabel());
+    }
 
     private static void stageOne(Data data) {
         data.setStageOne(new StageOne(data));
     }
+
+
 }

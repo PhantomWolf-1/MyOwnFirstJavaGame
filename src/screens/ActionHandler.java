@@ -4,8 +4,12 @@ import dataStore.Data;
 import objects.Player;
 import objects.classChoiceStats;
 
+import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 
 public class ActionHandler implements ActionListener {
 
@@ -43,6 +47,12 @@ private Data data;
             case "selectKnight":
                 data.getPlayer().setName(data.getPane().getTextName());
                 data.getPlayer().setStatsKnight(data.getStats());
+                try {
+                    data.setProfilePic(new ImageIcon(ImageIO.read(new File("./src/resource/Knight1.png"))));
+                    data.getLabelPic().setIcon(this.data.getProfilePic());
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
                 data.getFrame().setFrame(data.getPane().gameScreen());
                 break;
 
@@ -59,6 +69,7 @@ private Data data;
                 break;
 
 
+                //------------------------------------------------------------------------------------
                 //this is the button control for the main buttons of the game
 
             case "town":
@@ -69,6 +80,12 @@ private Data data;
                 break;
             case "shop":
                 data.getStageOne().direction(command);
+                try {
+                    data.setProfilePic(new ImageIcon(ImageIO.read(new File("./src/resource/mage1.png"))));
+                    data.getLabelPic().setIcon(this.data.getProfilePic());
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
                 break;
         }
 
