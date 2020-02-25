@@ -20,16 +20,22 @@ public class Data {
     private classChoiceStats stats;
     private ChoicePanels choicePanels;
     private StageOne stageOne;
-
     private JTextArea mainTextGame;
     private ImageIcon profilePic;
     private JLabel labelPic;
+    private ImageIcon itemPic;
+    private JLabel labelItemPic;
+
     private JTextArea playerStatsMainGame;
+    private JTextArea playerChoiceOptionInGame;
+
     private JButton choice1;
     private JButton choice2;
     private JButton choice3;
     private JButton choice4;
+    private JButton inventoryButton;
 
+    private Frame inventoryScreen;
 
     public Frame getFrame() {
         return this.frame;
@@ -89,6 +95,26 @@ public class Data {
 
     public JLabel getLabelPic() {
         return labelPic;
+    }
+
+    public ImageIcon getItemPic() {
+        return itemPic;
+    }
+
+    public JLabel getLabelItemPic() {
+        return labelItemPic;
+    }
+
+    public JTextArea getPlayerChoiceOptionInGame() {
+        return playerChoiceOptionInGame;
+    }
+
+    public JButton getInventoryButton() {
+        return inventoryButton;
+    }
+
+    public Frame getInventoryScreen() {
+        return inventoryScreen;
     }
 
     //------------------------------------------------------------------------------------------------------------------------
@@ -152,6 +178,26 @@ public class Data {
 
     public void setLabelPic(JLabel labelPic) {
         this.labelPic = labelPic;
+    }
+
+    public void setItemPic(ImageIcon itemPic) {
+        this.itemPic = itemPic;
+    }
+
+    public void setLabelItemPic(JLabel labelItemPic) {
+        this.labelItemPic = labelItemPic;
+    }
+
+    public void setPlayerChoiceOptionInGame(JTextArea playerChoiceOptionInGame) {
+        this.playerChoiceOptionInGame = playerChoiceOptionInGame;
+    }
+
+    public void setInventoryButton(JButton inventoryButton) {
+        this.inventoryButton = inventoryButton;
+    }
+
+    public void setInventoryScreen(Frame inventoryScreen) {
+        this.inventoryScreen = inventoryScreen;
     }
 
     public void clearButtons() {

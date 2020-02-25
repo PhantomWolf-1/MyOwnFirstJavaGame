@@ -212,6 +212,7 @@ public class Player {
     @Override
     public String toString() {
         return "Stats: \n" +
+                "\n" +
                 this.name + "\n"+
                 "money: " + " \n" +
                 this.money + " credits" + " \n" +

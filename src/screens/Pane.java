@@ -137,80 +137,114 @@ public class Pane extends Container {
         panel.setBackground(Color.black);
         panel.setLayout(null);
 
-
+        Font buttonFont = new Font("New Times Roman", Font.PLAIN | Font.BOLD, 15);
+        Font textAreaFont = new Font("", Font.PLAIN, 18);
         Border border = BorderFactory.createLineBorder(Color.white);
 
-        this.data.getMainTextGame().setBounds(60, 30, 800, 450);
+        this.data.getMainTextGame().setBounds(60, 30, 1110, 450);
         this.data.getMainTextGame().setBackground(Color.black);
         this.data.getMainTextGame().setForeground(Color.white);
         this.data.getMainTextGame().setEditable(false);
         this.data.getMainTextGame().setBorder(BorderFactory.createCompoundBorder(border,
                 BorderFactory.createEmptyBorder(10, 10, 10, 10)));
         this.data.getMainTextGame().setLineWrap(true);
-        this.data.getMainTextGame().setText("The first stage");
+        this.data.getMainTextGame().setFont(textAreaFont);
+        this.data.getMainTextGame().setText("The first stage, this is where your adventure will begin! but first, there is a little tutorial to get to know the game. After that you can begin your adventure");
 
+        this.data.getPlayerChoiceOptionInGame().setBounds(60, 500, 1110, 230);
+        this.data.getPlayerChoiceOptionInGame().setBackground(Color.black);
+        this.data.getPlayerChoiceOptionInGame().setForeground(Color.white);
+        this.data.getPlayerChoiceOptionInGame().setEditable(false);
+        this.data.getPlayerChoiceOptionInGame().setBorder(BorderFactory.createCompoundBorder(border,
+                BorderFactory.createEmptyBorder(10, 10, 10, 10)));
+        this.data.getPlayerChoiceOptionInGame().setLineWrap(true);
 
 
         JPanel statsPanel = new JPanel();
-        statsPanel.setBounds(1200, 30, 300, 450);
+        statsPanel.setBounds(1200, 30, 300, 700);
         statsPanel.setBackground(Color.black);
         statsPanel.setLayout(null);
         statsPanel.setBorder(BorderFactory.createCompoundBorder(border,
                 BorderFactory.createEmptyBorder(10,  10, 10, 10)));
 
-        this.data.getPlayerStatsMainGame().setBounds(10, 120, 280, 220);
+        this.data.getPlayerStatsMainGame().setBounds(10, 200, 280, 350);
         this.data.getPlayerStatsMainGame().setBackground(Color.black);
         this.data.getPlayerStatsMainGame().setForeground(Color.white);
         this.data.getPlayerStatsMainGame().setEditable(false);
+        this.data.getPlayerStatsMainGame().setFont(textAreaFont);
         this.data.getPlayerStatsMainGame().setText(this.data.getPlayer().toString());
 
         this.data.getLabelPic().setBounds(0, 0 , 200, 200);
+        this.data.getInventoryButton().setBounds(50, 570, 200, 100);
+        this.data.getInventoryButton().setText("INVENTORY");
+        this.data.getInventoryButton().setActionCommand("inventory");
+        this.data.getInventoryButton().addActionListener(this.data.getHandler());
+        this.data.getInventoryButton().setFont(buttonFont);
+
         statsPanel.add(this.data.getLabelPic());
-
-
-        /**
-         * to do : let the image icon work
-         *
-         */
         statsPanel.add(this.data.getPlayerStatsMainGame());
+        statsPanel.add(this.data.getInventoryButton());
 
 
-        Font buttonFont = new Font("New Times Roman", Font.PLAIN | Font.BOLD, 15);
 
         this.data.getChoice1().setText("BEGIN");
-        this.data.getChoice1().setBounds(60, 500, 150, 100);
+        this.data.getChoice1().setBounds(60, 780, 210, 110);
         this.data.getChoice1().setBackground(Color.white);
         this.data.getChoice1().setFont(buttonFont);
         this.data.getChoice1().setActionCommand("town");
         this.data.getChoice1().addActionListener(this.data.getHandler());
 
         this.data.getChoice2().setText("");
-        this.data.getChoice2().setBounds(220, 500, 150, 100);
+        this.data.getChoice2().setBounds(353, 780, 210, 110);
         this.data.getChoice2().setBackground(Color.white);
         this.data.getChoice2().setFont(buttonFont);
         this.data.getChoice2().setActionCommand("begin");
         this.data.getChoice2().addActionListener(this.data.getHandler());
 
         this.data.getChoice3().setText("");
-        this.data.getChoice3().setBounds(380, 500, 150, 100);
+        this.data.getChoice3().setBounds(656, 780, 210, 110);
         this.data.getChoice3().setBackground(Color.white);
         this.data.getChoice3().setFont(buttonFont);
         this.data.getChoice3().setActionCommand("begin");
         this.data.getChoice3().addActionListener(this.data.getHandler());
 
         this.data.getChoice4().setText("");
-        this.data.getChoice4().setBounds(540, 500, 150, 100);
+        this.data.getChoice4().setBounds(960, 780, 210, 110);
         this.data.getChoice4().setBackground(Color.white);
         this.data.getChoice4().setFont(buttonFont);
         this.data.getChoice4().setActionCommand("begin");
         this.data.getChoice4().addActionListener(this.data.getHandler());
 
         panel.add(statsPanel);
+        panel.add(this.data.getMainTextGame());
+        panel.add(this.data.getPlayerChoiceOptionInGame());
        // panel.add(this.data.getPlayerStatsMainGame());
         panel.add(this.data.getChoice1());
         panel.add(this.data.getChoice2());
         panel.add(this.data.getChoice3());
         panel.add(this.data.getChoice4());
+
+
+        add(panel);
+        return this;
+    }
+
+
+    public Container inventoryScreen(){
+        removeAll();
+
+        JPanel panel = new JPanel();
+        panel.setBounds(0, 0, 500, 300);
+        panel.setBackground(Color.black);
+        panel.setLayout(null);
+
+        JButton button = new JButton("hello");
+        button.setBounds(100,100,100,50);
+        button.setActionCommand("test");
+        button.addActionListener(this.data.getHandler());
+
+        panel.add(button);
+
 
 
         add(panel);

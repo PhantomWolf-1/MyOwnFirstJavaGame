@@ -13,7 +13,7 @@ public class Program {
 
     public void run() {
 
-        data.getFrame().setFrame(data.getPane().setStartScreen());
+        data.getFrame().setFrame(data.getPane().setChoiceScreen());
         data.getFrame().setFrameVisible();
 
     }
