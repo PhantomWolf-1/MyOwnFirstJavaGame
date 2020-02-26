@@ -96,7 +96,7 @@ public class Init {
 
     private static void inventoryButton(Data data){ data.setInventoryButton(new JButton()); }
 
-    private static void inventoryScreen(Data data){ data.setInventoryScreen(new Frame(300, 200, 500, 300, false));}
+    private static void inventoryScreen(Data data){ data.setInventoryScreen(new Frame(450, 250, 1000, 650, false));}
 
     private static void profilePic(Data data) {
         data.setProfilePic(new ImageIcon());

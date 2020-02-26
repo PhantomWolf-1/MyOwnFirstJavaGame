@@ -12,7 +12,7 @@ public class Frame extends JFrame {
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         } else{
             setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-        }
+    }
 
         setBounds(x, y, width, height);
         setLayout(null);

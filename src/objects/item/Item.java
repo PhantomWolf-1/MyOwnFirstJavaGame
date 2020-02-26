@@ -1,5 +1,11 @@
 package objects.item;
 
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
+
 public class Item {
 
     private String name;
@@ -19,9 +25,23 @@ public class Item {
         this.PNG = path;
     }
 
-    public String getPngPath() {
+    public ImageIcon getPngPath() {
 
-        return this.PNG;
+        ImageIcon image = null;
+
+        try {
+            image = new ImageIcon(ImageIO.read(new File(this.PNG)));
+
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+
+        if (image == null) {
+            return new ImageIcon();
+        } else {
+            return image;
+        }
     }
 
 

@@ -15,6 +15,7 @@ import java.io.IOException;
 public class ActionHandler implements ActionListener {
 
     private Data data;
+    private InventoryScreen inventoryScreen;
 
 
 //    public ActionHandler(Frame frame, Pane pane){
@@ -26,6 +27,7 @@ public class ActionHandler implements ActionListener {
     public ActionHandler(Data data) {
 
         this.data = data;
+        this.inventoryScreen = new InventoryScreen(data);
     }
 
 
@@ -60,12 +62,24 @@ public class ActionHandler implements ActionListener {
             case "selectArcher":
                 data.getPlayer().setName(data.getPane().getTextName());
                 data.getPlayer().setStatsArcher(data.getStats());
+                try {
+                    data.setProfilePic(new ImageIcon(ImageIO.read(new File("./src/resource/archer1.png"))));
+                    data.getLabelPic().setIcon(this.data.getProfilePic());
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
                 data.getFrame().setFrame(data.getPane().gameScreen());
                 break;
 
             case "selectMage":
                 data.getPlayer().setName(data.getPane().getTextName());
                 data.getPlayer().setStatsMage(data.getStats());
+                try {
+                    data.setProfilePic(new ImageIcon(ImageIO.read(new File("./src/resource/mage1.png"))));
+                    data.getLabelPic().setIcon(this.data.getProfilePic());
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
                 data.getFrame().setFrame(data.getPane().gameScreen());
                 break;
 
@@ -89,6 +103,20 @@ public class ActionHandler implements ActionListener {
              dialog.setVisible(true);
              break;
              **/
+
+            case "inventory":
+                this.data.getInventoryScreen().setFrame(this.inventoryScreen.screen());
+                this.data.getFrame().setEnabled(false);
+                this.data.getInventoryScreen().setFrameVisible();
+                break;
+
+            case "test":
+                this.data.getPlayer().attackUP();
+                this.data.getPlayerStatsMainGame().setText(data.getPlayer().toString());
+                this.data.getFrame().setEnabled(true);
+                this.data.getInventoryScreen().dispose();
+
+               break;
             case "town":
                 data.getStageOne().direction(command);
                 break;

@@ -161,7 +161,7 @@ public class Pane extends Container {
 
 
         JPanel statsPanel = new JPanel();
-        statsPanel.setBounds(1200, 30, 300, 700);
+        statsPanel.setBounds(1200, 30, 300, 860);
         statsPanel.setBackground(Color.black);
         statsPanel.setLayout(null);
         statsPanel.setBorder(BorderFactory.createCompoundBorder(border,
@@ -175,7 +175,15 @@ public class Pane extends Container {
         this.data.getPlayerStatsMainGame().setText(this.data.getPlayer().toString());
 
         this.data.getLabelPic().setBounds(0, 0 , 200, 200);
-        this.data.getInventoryButton().setBounds(50, 570, 200, 100);
+
+        this.data.getLabelItemPic().setBounds(10, 500, 150, 150 );
+        this.data.setItemPic(this.data.getPlayer().getInventory().getWeaponInUse().getPngPath());
+        this.data.getLabelItemPic().setOpaque(true);
+        this.data.getLabelItemPic().setBackground(Color.white);
+        this.data.getLabelItemPic().setIcon(this.data.getItemPic());
+
+
+        this.data.getInventoryButton().setBounds(50, 730, 200, 100);
         this.data.getInventoryButton().setText("INVENTORY");
         this.data.getInventoryButton().setActionCommand("inventory");
         this.data.getInventoryButton().addActionListener(this.data.getHandler());
@@ -183,6 +191,7 @@ public class Pane extends Container {
 
         statsPanel.add(this.data.getLabelPic());
         statsPanel.add(this.data.getPlayerStatsMainGame());
+        statsPanel.add(this.data.getLabelItemPic());
         statsPanel.add(this.data.getInventoryButton());
 
 
@@ -230,26 +239,6 @@ public class Pane extends Container {
     }
 
 
-    public Container inventoryScreen(){
-        removeAll();
-
-        JPanel panel = new JPanel();
-        panel.setBounds(0, 0, 500, 300);
-        panel.setBackground(Color.black);
-        panel.setLayout(null);
-
-        JButton button = new JButton("hello");
-        button.setBounds(100,100,100,50);
-        button.setActionCommand("test");
-        button.addActionListener(this.data.getHandler());
-
-        panel.add(button);
-
-
-
-        add(panel);
-        return this;
-    }
 
 
     public String getTextName() {
