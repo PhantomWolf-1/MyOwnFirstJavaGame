@@ -1,6 +1,8 @@
 package dataStore;
 
 import objects.item.Item;
+import objects.item.Weapon;
+
 import java.util.ArrayList;
 
 public class Inventory {
@@ -10,8 +12,18 @@ public class Inventory {
 
 
     public Inventory() {
-        this.weaponInUse = new Item("legendary sword", 1, 5000, 10000, "./src/resource/LG_sword1.png");
+        this.weaponInUse = new Weapon("my dick", 1, 1000000, 5000000, "./src/resource/LG_sword1.png", 9000, "legendary");
         this.items = new ArrayList<>();
+
+        this.items.add(new Weapon("legendary sword", 1, 1000000, 5000000, "./src/resource/LG_sword1.png", 9000, "legendary"));
+        this.items.add(new Weapon("wooden", 1, 1000000, 5000000, "./src/resource/LG_sword1.png", 9000, "legendary"));
+        this.items.add(new Weapon("stone", 1, 1000000, 5000000, "./src/resource/LG_sword1.png", 9000, "legendary"));
+        this.items.add(new Weapon("iron", 1, 1000000, 5000000, "./src/resource/LG_sword1.png", 9000, "legendary"));
+        this.items.add(new Weapon("diamond", 1, 1000000, 5000000, "./src/resource/LG_sword1.png", 9000, "legendary"));
+        this.items.add(new Weapon("netherite", 1, 1000000, 5000000, "./src/resource/LG_sword1.png", 9000, "legendary"));
+        this.items.add(new Weapon("dragon", 1, 1000000, 5000000, "./src/resource/LG_sword1.png", 9000, "legendary"));
+        this.items.add(new Weapon("fffff", 1, 1000000, 5000000, "./src/resource/LG_sword1.png", 9000, "legendary"));
+
     }
 
 
@@ -30,6 +42,10 @@ public class Inventory {
 
     public Item getWeaponInUse(){
         return this.weaponInUse;
+    }
+
+    public ArrayList<Item> allItems(){
+        return this.items;
     }
 
 }

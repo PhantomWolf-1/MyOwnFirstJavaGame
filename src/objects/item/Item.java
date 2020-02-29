@@ -6,7 +6,7 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
-public class Item {
+public abstract class Item {
 
     private String name;
     private int itemID;
@@ -25,7 +25,7 @@ public class Item {
         this.PNG = path;
     }
 
-    public ImageIcon getPngPath() {
+    public ImageIcon getPng() {
 
         ImageIcon image = null;
 
@@ -44,6 +44,47 @@ public class Item {
         }
     }
 
+    public abstract void decideRarity(String rarity);
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getItemID() {
+        return itemID;
+    }
+
+    public void setItemID(int itemID) {
+        this.itemID = itemID;
+    }
+
+    public int getSellPrice() {
+        return sellPrice;
+    }
+
+    public void setSellPrice(int sellPrice) {
+        this.sellPrice = sellPrice;
+    }
+
+    public int getBuyPrice() {
+        return buyPrice;
+    }
+
+    public void setBuyPrice(int buyPrice) {
+        this.buyPrice = buyPrice;
+    }
+
+    public String getPNG() {
+        return PNG;
+    }
+
+    public void setPNG(String PNG) {
+        this.PNG = PNG;
+    }
 
     @Override
     public String toString() {

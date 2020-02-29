@@ -125,12 +125,6 @@ public class ActionHandler implements ActionListener {
                 break;
             case "shop":
                 data.getStageOne().direction(command);
-                try {
-                    data.setProfilePic(new ImageIcon(ImageIO.read(new File("./src/resource/mage1.png"))));
-                    data.getLabelPic().setIcon(this.data.getProfilePic());
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                }
                 break;
         }
 

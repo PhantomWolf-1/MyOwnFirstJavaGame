@@ -177,9 +177,9 @@ public class Pane extends Container {
         this.data.getLabelPic().setBounds(0, 0 , 200, 200);
 
         this.data.getLabelItemPic().setBounds(10, 500, 150, 150 );
-        this.data.setItemPic(this.data.getPlayer().getInventory().getWeaponInUse().getPngPath());
-        this.data.getLabelItemPic().setOpaque(true);
-        this.data.getLabelItemPic().setBackground(Color.white);
+        this.data.setItemPic(this.data.getPlayer().getInventory().getWeaponInUse().getPng());
+//        this.data.getLabelItemPic().setOpaque(true);
+//        this.data.getLabelItemPic().setBackground(Color.white);
         this.data.getLabelItemPic().setIcon(this.data.getItemPic());
 
 
