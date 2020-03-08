@@ -13,36 +13,20 @@ public abstract class Item {
     private int sellPrice;
     private int buyPrice;
 
-    private String PNG;
+    private ImageIcon icon;
 
 
-    public Item(String name, int itemID, int sellPrice, int buyPrice, String path) {
+
+    public Item(String name, int itemID, int sellPrice, int buyPrice, ImageIcon icon) {
         this.name = name;
         this.itemID = itemID;
         this.sellPrice = sellPrice;
         this.buyPrice = buyPrice;
 
-        this.PNG = path;
+        this.icon = icon;
+
     }
 
-    public ImageIcon getPng() {
-
-        ImageIcon image = null;
-
-        try {
-            image = new ImageIcon(ImageIO.read(new File(this.PNG)));
-
-
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-
-        if (image == null) {
-            return new ImageIcon();
-        } else {
-            return image;
-        }
-    }
 
     public abstract void decideRarity(String rarity);
 
@@ -78,12 +62,12 @@ public abstract class Item {
         this.buyPrice = buyPrice;
     }
 
-    public String getPNG() {
-        return PNG;
+    public ImageIcon getIcon() {
+        return icon;
     }
 
-    public void setPNG(String PNG) {
-        this.PNG = PNG;
+    public void setIcon(ImageIcon icon) {
+        this.icon = icon;
     }
 
     @Override
@@ -93,7 +77,6 @@ public abstract class Item {
                 ", itemID=" + itemID +
                 ", sellPrice=" + sellPrice +
                 ", buyPrice=" + buyPrice +
-                ", PNG='" + PNG + '\'' +
                 '}';
     }
 }

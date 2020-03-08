@@ -1,6 +1,8 @@
 package objects;
 
+import dataStore.Data;
 import dataStore.Inventory;
+import objects.item.Weapon;
 
 import java.util.Scanner;
 
@@ -21,8 +23,8 @@ public class Player {
     private double blockChance;
 
 
-    public Player() {
-        this.inventory = new Inventory();
+    public Player(Data data) {
+        this.inventory = new Inventory(data);
 
         this.name = "";
         this.health = 0;
@@ -214,6 +216,16 @@ public class Player {
     public void setInventory(Inventory inventory) {
         this.inventory = inventory;
     }
+
+    public void setAttackWithWeapon(Weapon weapon){
+        this.attack += weapon.getAttackValue();
+    }
+
+      public void lowerAttackWithWeapon(Weapon weapon){
+        this.attack -= weapon.getAttackValue();
+    }
+
+
 
     // ------------------------- de stats voor de classes ----------------------------------------------------------
 

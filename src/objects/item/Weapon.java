@@ -1,9 +1,12 @@
 package objects.item;
 
+import javax.swing.*;
+
 public class Weapon extends Item {
 
     private int attackValue;
     private int durability;
+
 
     private enum rarities {
         COMMON,
@@ -13,16 +16,31 @@ public class Weapon extends Item {
 
     private rarities rarity;
 
-    public Weapon(String name, int itemID, int sellPrice, int buyPrice, String pathPNG, int attackValue, String rarity) {
-        super(name, itemID, sellPrice, buyPrice, pathPNG);
+    public Weapon(String name, int itemID, int sellPrice, int buyPrice, int attackValue, String rarity, ImageIcon icon) {
+        super(name, itemID, sellPrice, buyPrice, icon);
 
         this.attackValue = attackValue;
 
-       decideRarity(rarity);
+        decideRarity(rarity);
 
     }
 
 
+    public int getAttackValue() {
+        return attackValue;
+    }
+
+    public void setAttackValue(int attackValue) {
+        this.attackValue = attackValue;
+    }
+
+    public int getDurability() {
+        return durability;
+    }
+
+    public void setDurability(int durability) {
+        this.durability = durability;
+    }
 
     public void lowersDurability() {
         this.durability--;
@@ -53,12 +71,19 @@ public class Weapon extends Item {
 
     @Override
     public String toString() {
-        return super.getName()
-//                +
-//                " : \n" +
-//                "attackValue=" + attackValue +
-//                ", durability=" + durability +
-//                ", rarity=" + rarity
+        return super.getName();
+
+    }
+
+    public String viewWeaponInformation(){
+
+        return super.getName() +
+                " : \n" +
+                "attackValue: " + attackValue + "\n" +
+                "durability: " + durability + "\n" +
+                "rarity: " + rarity + "\n" +
+                "sell price: " + super.getSellPrice() + "\n" +
+                super.getBuyPrice()
                 ;
     }
 

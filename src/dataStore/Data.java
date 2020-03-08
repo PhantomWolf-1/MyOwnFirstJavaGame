@@ -2,6 +2,7 @@ package dataStore;
 
 import objects.Player;
 import objects.classChoiceStats;
+import objects.item.ItemSpritesKnightClass;
 import screens.ActionHandler;
 import screens.ChoicePanels;
 import screens.Frame;
@@ -36,6 +37,8 @@ public class Data {
     private JButton inventoryButton;
 
     private Frame inventoryScreen;
+    private ItemSpritesKnightClass allSpritesKnight;
+
 
     public Frame getFrame() {
         return this.frame;
@@ -115,6 +118,10 @@ public class Data {
 
     public Frame getInventoryScreen() {
         return inventoryScreen;
+    }
+
+    public ItemSpritesKnightClass getAllSpritesKnight() {
+        return allSpritesKnight;
     }
 
     //------------------------------------------------------------------------------------------------------------------------
@@ -198,6 +205,10 @@ public class Data {
 
     public void setInventoryScreen(Frame inventoryScreen) {
         this.inventoryScreen = inventoryScreen;
+    }
+
+    public void setAllSpritesKnight(ItemSpritesKnightClass allSpritesKnight) {
+        this.allSpritesKnight = allSpritesKnight;
     }
 
     public void clearButtons() {

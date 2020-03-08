@@ -86,23 +86,6 @@ public class ActionHandler implements ActionListener {
 
             //------------------------------------------------------------------------------------
             //this is the button control for the main buttons of the game
-            /**
-
-             TO DO:
-             let the dialog work with some changes for the main screen.
-             And make a update function for al the data that is printed in the main frame.
-             case "inventory":
-             data.getInventoryScreen().setFrame(this.data.getPane().inventoryScreen());
-             data.getInventoryScreen().setFrameVisible();
-             break;
-             case "test":
-             JDialog dialog = new JDialog(data.getFrame(), "Inventory", true);
-             dialog.setBackground(Color.blue);
-             dialog.pack();
-             dialog.setLocationRelativeTo(null);
-             dialog.setVisible(true);
-             break;
-             **/
 
             case "inventory":
                 this.data.getInventoryScreen().setFrame(this.inventoryScreen.screen());
@@ -110,22 +93,18 @@ public class ActionHandler implements ActionListener {
                 this.data.getInventoryScreen().setFrameVisible();
                 break;
 
-            case "test":
-                this.data.getPlayer().attackUP();
-                this.data.getPlayerStatsMainGame().setText(data.getPlayer().toString());
-                this.data.getFrame().setEnabled(true);
-                this.data.getInventoryScreen().dispose();
-
-               break;
             case "town":
                 data.getStageOne().direction(command);
                 break;
+
             case "dungeon":
                 data.getStageOne().direction(command);
                 break;
+
             case "shop":
                 data.getStageOne().direction(command);
                 break;
+
         }
 
 

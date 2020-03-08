@@ -1,6 +1,7 @@
 import dataStore.Data;
 import objects.Player;
 import objects.classChoiceStats;
+import objects.item.ItemSpritesKnightClass;
 import screens.ActionHandler;
 import screens.ChoicePanels;
 import screens.Frame;
@@ -16,6 +17,7 @@ public class Init {
 
         Data data = new Data();
 
+        allSpritesKnight(data);
         frame(data);
         pane(data);
         handler(data);
@@ -59,7 +61,7 @@ public class Init {
     }
 
     private static void player(Data data) {
-        data.setPlayer(new Player());
+        data.setPlayer(new Player(data));
     }
 
     private static void stats(Data data) { data.setStats(new classChoiceStats()); }
@@ -112,6 +114,10 @@ public class Init {
 
     private static void stageOne(Data data) {
         data.setStageOne(new StageOne(data));
+    }
+
+    private static void allSpritesKnight(Data data){
+        data.setAllSpritesKnight(new ItemSpritesKnightClass("./src/resource/weapon-sprites.png"));
     }
 
 
