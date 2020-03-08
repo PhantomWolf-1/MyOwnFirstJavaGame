@@ -1,8 +1,12 @@
 package objects;
 
+import dataStore.Inventory;
+
 import java.util.Scanner;
 
 public class Player {
+
+    private Inventory inventory;
 
     private String name;
     private int lvl;
@@ -18,6 +22,8 @@ public class Player {
 
 
     public Player() {
+        this.inventory = new Inventory();
+
         this.name = "";
         this.health = 0;
         this.maxHealth = 0;
@@ -201,8 +207,13 @@ public class Player {
         this.money = money;
     }
 
+    public Inventory getInventory() {
+        return inventory;
+    }
 
-
+    public void setInventory(Inventory inventory) {
+        this.inventory = inventory;
+    }
 
     // ------------------------- de stats voor de classes ----------------------------------------------------------
 
@@ -212,6 +223,7 @@ public class Player {
     @Override
     public String toString() {
         return "Stats: \n" +
+                "\n" +
                 this.name + "\n"+
                 "money: " + " \n" +
                 this.money + " credits" + " \n" +
